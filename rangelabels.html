@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Labels</title>
+</head>
+<body>
+  <div id="input-wrapper">
+    <input id="range-input"
+     type="range" 
+     min="0" 
+     max="10" 
+     step="1" />
+    <ul id="label-list">
+      <li class="label-list__item"></li>
+      <li class="label-list__item"></li>
+      <li class="label-list__item"></li>
+      <li class="label-list__item"></li>
+      <li class="label-list__item"></li>
+      <li class="label-list__item"></li>
+    </ul>
+  </div>
+</body>
+<script>
+  function setLabels(){
+    const labelList = document.getElementsByClassName("label-list__item");
+    const input = document.getElementById("range-input");
+    let min = Number(input.getAttribute("min"));
+    let max = Number(input.getAttribute("max"));
+    let interval = (max-min)/5;
+    let value = min;
+
+    for (let i = 0; i < labelList.length; i++){
+      labelList[i].innerHTML = value;
+      value = Math.ceil(value+interval);
+    }
+  }
+  setLabels();
+</script>
+<style>
+  *,
+*::before,
+*::after{
+  box-sizing: inherit;
+}
+
+html{
+  margin: 0;
+  padding: 0;
+}
+
+#input-wrapper{
+  width: 100%;
+  max-width: 600px;
+  min-width: 350px;
+  margin: 150px auto;
+}
+
+#range-input{
+  width: 100%;
+  margin-top: 0;
+}
+
+#range-input:focus{
+  outline: none;
+}
+
+#label-list{
+  margin: 10px -9% 0 -9%;
+  padding: 0;
+  list-style-type: none;
+  height: 40px;
+}
+
+#label-list li{
+  position: relative;
+  float: left;
+  width: 16.66%;
+  text-align: center;
+}
+
+#label-list li::before{
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 10px;
+  background-color: rgba(0,0,0,.2)
+}
+
+
+</style>
+</html>
