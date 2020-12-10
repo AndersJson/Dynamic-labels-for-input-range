@@ -1,4 +1,4 @@
 ## Dynamic-labels-for-input-range
 Calculate the correct labels based on min- &amp; max-value of input range.
 ### Example in codepen:
-https://codepen.io/andersJson-dev/pen/JjRKBWj
+<a href="https://codepen.io/andersJson-dev/pen/JjRKBWj" target="_blank">Dynamic labels for input range</a>
